@@ -3,6 +3,8 @@ project(obj_software_renderer)
 set(CMAKE_CXX_STANDARD 23)
 add_executable(obj_software_renderer main.cpp)
 
+target_link_options(obj_software_renderer PRIVATE -static-libgcc -static-libstdc++)
+
 set(SDL2_DIR "${CMAKE_SOURCE_DIR}/SDL2-2.32.10/x86_64-w64-mingw32")
 target_include_directories(obj_software_renderer PRIVATE "${SDL2_DIR}/include/SDL2")
 target_link_libraries(obj_software_renderer PRIVATE
