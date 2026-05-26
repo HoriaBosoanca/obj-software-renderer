@@ -1,15 +1,17 @@
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
-
-#include <cstdint>
-
-constexpr int WIDTH = 800;
-constexpr int HEIGHT = 600;
-#define CHANNELS 3
+#include "draw.h"
 
 int main() {
-	uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
-	stbi_write_png("render.png", WIDTH, HEIGHT, CHANNELS,
-		pixels, WIDTH*CHANNELS);
+	Point a = {7, 3}, b = {12,37}, c = {62, 53};
+
+	draw_line(a, b, BLUE);
+	draw_line(b, c, GREEN);
+	draw_line(c, a, YELLOW);
+	draw_line(a, c, RED);
+
+	set_pixel(a.x, a.y, WHITE);
+	set_pixel(b.x, b.y, WHITE);
+	set_pixel(c.x, c.y, WHITE);
+
+	create_image();
 	return 0;
 }
