@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb",
+  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\main.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\main.cpp",
+  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/main.cpp",
+  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj"
+}
+]

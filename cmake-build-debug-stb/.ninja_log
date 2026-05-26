@@ -1,0 +1,6 @@
+# ninja log v6
+4	348	8015331634206407	CMakeFiles/obj_software_renderer.dir/main.cpp.obj	222780a3aa840241
+300	393	8015345308290410	obj_software_renderer.exe	29333d29e5708eed
+2	114	8015345755474181	build.ninja	6922dcf3460c5a16
+2	300	8015345305307775	CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj	a261b13be9dac7e
+2	114	8015345755444161	C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/cmake_install.cmake	6922dcf3460c5a16

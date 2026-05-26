@@ -4,8 +4,8 @@ set(CMAKE_CXX_STANDARD 23)
 
 option(USE_SDL "OFF -> will generate an image using stb; ON -> will render using SDL" OFF)
 if (USE_SDL)
-    add_executable(obj_software_renderer sdl_main.cpp)
-    set(SDL2_DIR "${CMAKE_SOURCE_DIR}/lib/SDL2-2.32.10/x86_64-w64-mingw32")
+    add_executable(obj_software_renderer src/sdl_main.cpp)
+    set(SDL2_DIR "lib/SDL2-2.32.10/x86_64-w64-mingw32")
     target_include_directories(obj_software_renderer PRIVATE
             "${SDL2_DIR}/include/SDL2"
     )
@@ -19,9 +19,9 @@ if (USE_SDL)
             $<TARGET_FILE_DIR:obj_software_renderer>
     )
 else ()
-    add_executable(obj_software_renderer main.cpp)
+    add_executable(obj_software_renderer src/main.cpp)
     target_include_directories(obj_software_renderer PRIVATE
-            "${CMAKE_SOURCE_DIR}/lib/stb"
+            "lib/stb"
     )
 endif ()
 
