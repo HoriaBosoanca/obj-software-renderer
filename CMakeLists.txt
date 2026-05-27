@@ -22,6 +22,7 @@ else ()
     add_executable(obj_software_renderer
             src/main.cpp
             src/draw_stb/draw.cpp
+            src/load_obj.cpp
     )
     target_include_directories(obj_software_renderer PRIVATE
             lib/stb

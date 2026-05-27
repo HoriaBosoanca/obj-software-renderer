@@ -1,11 +1,25 @@
 #pragma once
 #include <cstdint>
+#include <utility>
+
+constexpr int WIDTH = 800;
+constexpr int HEIGHT = 800;
 
 struct Point {
-	Point(int _x, int _y)
+	Point(float _x, float _y)
 		: x(_x), y(_y) {}
-	int x, y;
+	void operator+(const float n) {
+		x += n;
+		y += n;
+	}
+	void operator/(const float n) {
+		x /= n;
+		y /= n;
+	}
+	float x, y;
 };
+
+using Line = std::pair<Point, Point>;
 
 struct Color {
 	Color(uint8_t _b, uint8_t _g, uint8_t _r, uint8_t _a)

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "obj_software_renderer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-obj_software_renderer-Debug-c2f3218d539731ec049e.json",
+					"jsonFile" : "target-obj_software_renderer-Debug-101eee47690df52cdf25.json",
 					"name" : "obj_software_renderer",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl",
+		"build" : "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb",
 		"source" : "C:/Users/redpl/CLionProjects/obj-software-renderer"
 	},
 	"version" : 

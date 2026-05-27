@@ -5,8 +5,6 @@
 
 #include <cstdint>
 
-constexpr int WIDTH = 64;
-constexpr int HEIGHT = 64;
 #define CHANNELS 3
 uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
 
