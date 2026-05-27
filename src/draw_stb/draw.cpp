@@ -23,9 +23,26 @@ void set_pixel(int x, int y, Color color) {
 }
 
 void draw_line(Point a, Point b, Color color) {
-	for (float t = 0; t < 1; t+=.02) {
-		int x = std::round(a.x+(b.x-a.x)*t);
+	// for (float t = 0; t < 1; t+=.02) {
+	// 	int x = std::round(a.x+(b.x-a.x)*t);
+	// 	int y = std::round(a.y+(b.y-a.y)*t);
+	// 	set_pixel(x, y, color);
+	// }
+	bool steep = std::abs(a.x-b.x) < std::abs(a.y-b.y);
+	if (steep) {
+		std::swap(a.x, a.y);
+		std::swap(b.x, b.y);
+	}
+	if (a.x > b.x) {
+		std::swap(a, b);
+	}
+	for (int x = a.x; x <= b.x; x++) {
+		float t = (x-a.x)/static_cast<float>(b.x-a.x);
 		int y = std::round(a.y+(b.y-a.y)*t);
-		set_pixel(x, y, color);
+		if (steep) {
+			set_pixel(y, x, color);
+		} else {
+			set_pixel(x, y, color);
+		}
 	}
 }

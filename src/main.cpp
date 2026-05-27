@@ -4,7 +4,7 @@ int main() {
 	Point a = {7, 3}, b = {12,37}, c = {62, 53};
 
 	draw_line(a, b, BLUE);
-	draw_line(b, c, GREEN);
+	draw_line(c, b, GREEN);
 	draw_line(c, a, YELLOW);
 	draw_line(a, c, RED);
 
