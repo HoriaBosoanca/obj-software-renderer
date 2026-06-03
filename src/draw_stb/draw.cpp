@@ -1,6 +1,7 @@
 #include "draw.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
+#include <algorithm>
 #include <cstdint>
 
 #define CHANNELS 3
@@ -10,7 +11,9 @@ void render(const char* out_path) {
 	stbi_write_png(out_path, WIDTH, HEIGHT, CHANNELS, pixels, WIDTH*CHANNELS);
 }
 
-void set_pixel(const int x, const int y, const Color color) {
+void set_pixel(int x, int y, const Color color) {
+	x = std::clamp(x, 0, WIDTH-1);
+	y = std::clamp(y, 0, HEIGHT-1);
 	const int idx = ((HEIGHT-1-y)*WIDTH+x)*CHANNELS;
 	pixels[idx + 0] = color.r;
 	pixels[idx + 1] = color.g;
