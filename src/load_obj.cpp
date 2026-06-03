@@ -3,20 +3,18 @@
 #include <fstream>
 #include <sstream>
 
-std::vector<Line> obj_get_lines(const char* obj_path) {
-	std::ifstream in_obj(obj_path);
+Model::Model(const char* obj_path) {
+	std::ifstream in_file(obj_path);
+	std::vector<Vec3> points;
 
-	std::vector<Point> points;
-	std::vector<Line> lines;
-
-	std::string in_line;
-	while (std::getline(in_obj, in_line)) {
-		std::stringstream line_ss(in_line);
-		std::string data_format; line_ss >> data_format;
-		if (data_format == "v") {
+	std::string line_str;
+	while (std::getline(in_file, line_str)) {
+		std::stringstream line_ss(line_str);
+		std::string label; line_ss >> label;
+		if (label == "v") {
 			float x, y, z; line_ss >> x >> y >> z;
-			points.push_back(Point{x, y});
-		} else if (data_format == "f") {
+			points.push_back(Vec3{x, y, z});
+		} else if (label == "f") {
 			std::string num_str;
 
 			std::getline(line_ss, num_str, '/');
@@ -38,6 +36,5 @@ std::vector<Line> obj_get_lines(const char* obj_path) {
 			// nothing for now
 		}
 	}
-
-	return lines;
+	in_file.close();
 }

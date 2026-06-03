@@ -5,24 +5,22 @@
 constexpr int WIDTH = 800;
 constexpr int HEIGHT = 800;
 
-struct Point {
-	Point(float _x, float _y)
-		: x(_x), y(_y) {}
-	void operator+(const float n) {
-		x += n;
-		y += n;
+struct Vec3 {
+	float x, y, z;
+	Vec3(const float _x, const float _y, const float _z)
+		: x(_x), y(_y), z(_z) {}
+	Vec3 operator+(const float n) const {
+		return Vec3{x+n, y+n, z+n};
 	}
-	void operator/(const float n) {
-		x /= n;
-		y /= n;
+	Vec3 operator/(const float n) const {
+		return Vec3{x/n, y/n, z/n};
 	}
-	float x, y;
 };
 
-using Line = std::pair<Point, Point>;
+using Line = std::pair<Vec3, Vec3>;
 
 struct Color {
-	Color(uint8_t _b, uint8_t _g, uint8_t _r, uint8_t _a)
+	Color(const uint8_t _b, const uint8_t _g, const uint8_t _r, const uint8_t _a)
 		: b(_b), g(_g), r(_r), a(_a) {}
 	uint8_t b, g, r, a;
 };

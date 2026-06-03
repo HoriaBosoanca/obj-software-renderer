@@ -3,4 +3,7 @@
 #include "types.h"
 #include <vector>
 
-std::vector<Line> obj_get_lines(const char* obj_path);
+struct Model {
+	std::vector<Line> lines;
+	Model(const char* obj_path);
+};
