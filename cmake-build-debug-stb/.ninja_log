@@ -12,3 +12,16 @@
 283	608	8023859186225973	obj_software_renderer.exe	bf3dfb00a05b2050
 5	260	8023859411954927	CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj	3fc3f4de29efa16c
 261	579	8023859414515363	obj_software_renderer.exe	bf3dfb00a05b2050
+7	354	8023873153514112	CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj	3fc3f4de29efa16c
+12	530	8023873153564076	CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj	eaf27ebe3ac6d5a
+16	586	8023873153607122	CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj	e3139862c29485c8
+586	935	8023873159300370	obj_software_renderer.exe	bf3dfb00a05b2050
+7	321	8023874543323344	CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj	3fc3f4de29efa16c
+12	439	8023874543376118	CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj	eaf27ebe3ac6d5a
+439	783	8023874547647298	obj_software_renderer.exe	bf3dfb00a05b2050
+13	454	8023875090021464	CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj	eaf27ebe3ac6d5a
+5	300	8023878625187942	CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj	3fc3f4de29efa16c
+300	629	8023878628132993	obj_software_renderer.exe	bf3dfb00a05b2050
+5	302	8023880553267398	CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj	3fc3f4de29efa16c
+13	440	8023880553349982	CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj	eaf27ebe3ac6d5a
+441	754	8023880557627490	obj_software_renderer.exe	bf3dfb00a05b2050

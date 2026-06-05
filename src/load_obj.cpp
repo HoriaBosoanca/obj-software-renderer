@@ -1,5 +1,4 @@
 #include "load_obj.h"
-#include <cmath>
 #include <fstream>
 #include <sstream>
 
@@ -29,9 +28,7 @@ Model::Model(const char* obj_path) {
 			int idx3 = std::stoi(num_str);
 			std::getline(line_ss, num_str, '\n');
 
-			lines.push_back(Line{points[idx1-1], points[idx2-1]});
-			lines.push_back(Line{points[idx2-1], points[idx3-1]});
-			lines.push_back(Line{points[idx3-1], points[idx1-1]});
+			triangles.push_back(Triangle{points[idx1-1], points[idx2-1], points[idx3-1]});
 		} else {
 			// nothing for now
 		}

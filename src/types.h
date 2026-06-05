@@ -17,7 +17,7 @@ struct Vec3 {
 	}
 };
 
-using Line = std::pair<Vec3, Vec3>;
+using Triangle = std::tuple<Vec3, Vec3, Vec3>;
 
 struct Color {
 	Color(const uint8_t _b, const uint8_t _g, const uint8_t _r, const uint8_t _a)

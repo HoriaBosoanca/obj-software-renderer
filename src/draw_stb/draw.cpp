@@ -3,6 +3,7 @@
 #include "stb_image_write.h"
 #include <algorithm>
 #include <cstdint>
+#include <tuple>
 
 #define CHANNELS 3
 uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
@@ -43,4 +44,10 @@ void draw_line(Vec3 a, Vec3 b, const Color color) {
 			set_pixel(x, y, color);
 		}
 	}
+}
+
+void draw_triangle(const Triangle& t, const Color color) {
+	draw_line(std::get<0>(t), std::get<1>(t), color);
+	draw_line(std::get<1>(t), std::get<2>(t), color);
+	draw_line(std::get<2>(t), std::get<0>(t), color);
 }
