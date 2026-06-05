@@ -248,7 +248,7 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//OFF -> will generate an image using stb; ON -> will render using
+//OFF -> will generate an image using STB; ON -> will render using
 // SDL
 USE_SDL:BOOL=ON
 

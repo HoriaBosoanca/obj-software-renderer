@@ -1,8 +1,14 @@
 [
 {
   "directory": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl",
-  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/SDL2-2.32.10/x86_64-w64-mingw32/include/SDL2 -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\sdl_main.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\sdl_main.cpp",
-  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/sdl_main.cpp",
-  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/CMakeFiles/obj_software_renderer.dir/src/sdl_main.cpp.obj"
+  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/SDL2-2.32.10/x86_64-w64-mingw32/include/SDL2 -IC:/Users/redpl/CLionProjects/obj-software-renderer/src -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\main_SDL.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\main_SDL.cpp",
+  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/main_SDL.cpp",
+  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/CMakeFiles/obj_software_renderer.dir/src/main_SDL.cpp.obj"
+},
+{
+  "directory": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl",
+  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/SDL2-2.32.10/x86_64-w64-mingw32/include/SDL2 -IC:/Users/redpl/CLionProjects/obj-software-renderer/src -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\load_obj.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\load_obj.cpp",
+  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/load_obj.cpp",
+  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj"
 }
 ]

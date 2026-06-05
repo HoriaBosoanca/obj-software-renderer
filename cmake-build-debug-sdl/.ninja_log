@@ -1,6 +1,9 @@
 # ninja log v6
-3	144	8015696298849984	C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/cmake_install.cmake	ab30f38ebf6899f6
 4	567	8015318795307376	CMakeFiles/obj_software_renderer.dir/sdl_main.cpp.obj	de4ee0d70a452c24
-4	176	8015359637933229	obj_software_renderer.exe	1053891ba38f155
-3	144	8015696298949992	build.ninja	ab30f38ebf6899f6
+2	132	8023917904485705	C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/cmake_install.cmake	ab30f38ebf6899f6
+473	604	8023903129583061	obj_software_renderer.exe	9d2f7c48d525211
+4	501	8023915766208937	CMakeFiles/obj_software_renderer.dir/src/main_SDL.cpp.obj	391a6b92389a5749
+2	471	8023903124869710	CMakeFiles/obj_software_renderer.dir/src/draw_sdl/sdl_main.cpp.obj	f8f910e7508ab943
 1	458	8015356952568505	CMakeFiles/obj_software_renderer.dir/src/sdl_main.cpp.obj	ea98e8ad742a0132
+2	132	8023917904546193	build.ninja	ab30f38ebf6899f6
+4	520	8023916290509754	CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj	bbc9c9ccb73b0c20

@@ -6,5 +6,5 @@
 struct Model {
 	std::vector<Triangle> triangles;
 	Model(const char* obj_path);
-	void draw() const;
+	void draw(Color c) const;
 };

@@ -37,7 +37,6 @@ Model::Model(const char* obj_path) {
 	in_file.close();
 }
 
-#define CAM_SCALE 1.0f
 void transform_triangle(Triangle& t) {
 	for (Vec3* p : {&std::get<0>(t), &std::get<1>(t), &std::get<2>(t)}) {
 		*p = (*p+1.0f)/2.0f/CAM_SCALE;
@@ -45,9 +44,9 @@ void transform_triangle(Triangle& t) {
 	}
 }
 
-void Model::draw() const {
+void Model::draw(const Color c) const {
 	for (auto t : triangles) {
 		transform_triangle(t);
-		draw_triangle(t, RED);
+		draw_triangle(t, c);
 	}
 }

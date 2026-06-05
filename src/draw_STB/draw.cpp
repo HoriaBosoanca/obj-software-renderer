@@ -1,7 +1,6 @@
 #include "draw.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
-#include <algorithm>
 #include <cstdint>
 #include <tuple>
 
@@ -13,15 +12,15 @@ void render(const char* out_path) {
 }
 
 void set_pixel(int x, int y, const Color color) {
-	x = std::clamp(x, 0, WIDTH-1);
-	y = std::clamp(y, 0, HEIGHT-1);
-	const int idx = ((HEIGHT-1-y)*WIDTH+x)*CHANNELS;
-	pixels[idx + 0] = color.r;
-	pixels[idx + 1] = color.g;
-	pixels[idx + 2] = color.b;
+	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
+		const int idx = ((HEIGHT-1-y)*WIDTH+x)*CHANNELS;
+		pixels[idx + 0] = color.r;
+		pixels[idx + 1] = color.g;
+		pixels[idx + 2] = color.b;
+	}
 }
 
-void draw_line(Vec3 a, Vec3 b, const Color color) {
+void draw_line(Vec3 a, Vec3 b, const Color c) {
 	// for (float t = 0; t < 1; t+=.02) {
 	// 	int x = std::round(a.x+(b.x-a.x)*t);
 	// 	int y = std::round(a.y+(b.y-a.y)*t);
@@ -39,15 +38,15 @@ void draw_line(Vec3 a, Vec3 b, const Color color) {
 		const float t = (x-a.x)/(b.x-a.x);
 		const int y = std::round(a.y+(b.y-a.y)*t);
 		if (steep) {
-			set_pixel(y, x, color);
+			set_pixel(y, x, c);
 		} else {
-			set_pixel(x, y, color);
+			set_pixel(x, y, c);
 		}
 	}
 }
 
-void draw_triangle(const Triangle& t, const Color color) {
-	draw_line(std::get<0>(t), std::get<1>(t), color);
-	draw_line(std::get<1>(t), std::get<2>(t), color);
-	draw_line(std::get<2>(t), std::get<0>(t), color);
+void draw_triangle(const Triangle& t, const Color c) {
+	draw_line(std::get<0>(t), std::get<1>(t), c);
+	draw_line(std::get<1>(t), std::get<2>(t), c);
+	draw_line(std::get<2>(t), std::get<0>(t), c);
 }

@@ -1,19 +1,19 @@
 [
 {
   "directory": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb",
-  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\main.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\main.cpp",
-  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/main.cpp",
-  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj"
+  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB -IC:/Users/redpl/CLionProjects/obj-software-renderer/src -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\main_STB.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\main_STB.cpp",
+  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/main_STB.cpp",
+  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/CMakeFiles/obj_software_renderer.dir/src/main_STB.cpp.obj"
 },
 {
   "directory": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb",
-  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\draw_stb\\draw.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\draw_stb\\draw.cpp",
-  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb/draw.cpp",
-  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj"
+  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB -IC:/Users/redpl/CLionProjects/obj-software-renderer/src -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\draw_STB\\draw.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\draw_STB\\draw.cpp",
+  "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB/draw.cpp",
+  "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/CMakeFiles/obj_software_renderer.dir/src/draw_STB/draw.cpp.obj"
 },
 {
   "directory": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb",
-  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\load_obj.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\load_obj.cpp",
+  "command": "C:\\Users\\redpl\\AppData\\Local\\Programs\\CLion\\bin\\mingw\\bin\\g++.exe -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB -IC:/Users/redpl/CLionProjects/obj-software-renderer/src -g -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles\\obj_software_renderer.dir\\src\\load_obj.cpp.obj -c C:\\Users\\redpl\\CLionProjects\\obj-software-renderer\\src\\load_obj.cpp",
   "file": "C:/Users/redpl/CLionProjects/obj-software-renderer/src/load_obj.cpp",
   "output": "C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-stb/CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj"
 }

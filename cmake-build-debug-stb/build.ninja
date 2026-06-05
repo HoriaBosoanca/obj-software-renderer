@@ -49,27 +49,27 @@ cmake_ninja_workdir = C$:/Users/redpl/CLionProjects/obj-software-renderer/cmake-
 
 build cmake_object_order_depends_target_obj_software_renderer: phony || .
 
-build CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj: CXX_COMPILER__obj_software_renderer_unscanned_Debug C$:/Users/redpl/CLionProjects/obj-software-renderer/src/main.cpp || cmake_object_order_depends_target_obj_software_renderer
+build CMakeFiles/obj_software_renderer.dir/src/main_STB.cpp.obj: CXX_COMPILER__obj_software_renderer_unscanned_Debug C$:/Users/redpl/CLionProjects/obj-software-renderer/src/main_STB.cpp || cmake_object_order_depends_target_obj_software_renderer
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\obj_software_renderer.dir\src\main.cpp.obj.d
+  DEP_FILE = CMakeFiles\obj_software_renderer.dir\src\main_STB.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb
+  INCLUDES = -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB -IC:/Users/redpl/CLionProjects/obj-software-renderer/src
   OBJECT_DIR = CMakeFiles\obj_software_renderer.dir
   OBJECT_FILE_DIR = CMakeFiles\obj_software_renderer.dir\src
 
-build CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj: CXX_COMPILER__obj_software_renderer_unscanned_Debug C$:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb/draw.cpp || cmake_object_order_depends_target_obj_software_renderer
+build CMakeFiles/obj_software_renderer.dir/src/draw_STB/draw.cpp.obj: CXX_COMPILER__obj_software_renderer_unscanned_Debug C$:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB/draw.cpp || cmake_object_order_depends_target_obj_software_renderer
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\obj_software_renderer.dir\src\draw_stb\draw.cpp.obj.d
+  DEP_FILE = CMakeFiles\obj_software_renderer.dir\src\draw_STB\draw.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb
+  INCLUDES = -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB -IC:/Users/redpl/CLionProjects/obj-software-renderer/src
   OBJECT_DIR = CMakeFiles\obj_software_renderer.dir
-  OBJECT_FILE_DIR = CMakeFiles\obj_software_renderer.dir\src\draw_stb
+  OBJECT_FILE_DIR = CMakeFiles\obj_software_renderer.dir\src\draw_STB
 
 build CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj: CXX_COMPILER__obj_software_renderer_unscanned_Debug C$:/Users/redpl/CLionProjects/obj-software-renderer/src/load_obj.cpp || cmake_object_order_depends_target_obj_software_renderer
   CONFIG = Debug
   DEP_FILE = CMakeFiles\obj_software_renderer.dir\src\load_obj.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_stb
+  INCLUDES = -IC:/Users/redpl/CLionProjects/obj-software-renderer/lib/stb -IC:/Users/redpl/CLionProjects/obj-software-renderer/src/draw_STB -IC:/Users/redpl/CLionProjects/obj-software-renderer/src
   OBJECT_DIR = CMakeFiles\obj_software_renderer.dir
   OBJECT_FILE_DIR = CMakeFiles\obj_software_renderer.dir\src
 
@@ -81,10 +81,10 @@ build CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj: CXX_COMPILER__o
 #############################################
 # Link the executable obj_software_renderer.exe
 
-build obj_software_renderer.exe: CXX_EXECUTABLE_LINKER__obj_software_renderer_Debug CMakeFiles/obj_software_renderer.dir/src/main.cpp.obj CMakeFiles/obj_software_renderer.dir/src/draw_stb/draw.cpp.obj CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj
+build obj_software_renderer.exe: CXX_EXECUTABLE_LINKER__obj_software_renderer_Debug CMakeFiles/obj_software_renderer.dir/src/main_STB.cpp.obj CMakeFiles/obj_software_renderer.dir/src/draw_STB/draw.cpp.obj CMakeFiles/obj_software_renderer.dir/src/load_obj.cpp.obj
   CONFIG = Debug
   FLAGS = -g
-  LINK_FLAGS = -static-libgcc -static-libstdc++
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\obj_software_renderer.dir
   POST_BUILD = cd .
