@@ -36,7 +36,7 @@ void draw_line(Vec3 a, Vec3 b, const Color color) {
 		std::swap(a, b);
 	}
 	for (int x = a.x; x <= b.x; x++) {
-		const float t = (x-a.x)/static_cast<float>(b.x-a.x);
+		const float t = (x-a.x)/(b.x-a.x);
 		const int y = std::round(a.y+(b.y-a.y)*t);
 		if (steep) {
 			set_pixel(y, x, color);
