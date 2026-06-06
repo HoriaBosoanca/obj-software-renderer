@@ -1,6 +1,6 @@
 #pragma once
 
-#include "types.h"
+#include "global.h"
 #include <vector>
 
 struct Model {

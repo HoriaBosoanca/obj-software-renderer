@@ -1,3 +1,0 @@
-C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/CMakeFiles/obj_software_renderer.dir
-C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/CMakeFiles/edit_cache.dir
-C:/Users/redpl/CLionProjects/obj-software-renderer/cmake-build-debug-sdl/CMakeFiles/rebuild_cache.dir
