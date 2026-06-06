@@ -11,7 +11,7 @@ void set_pixel(const int x, const int y, const Color color) {
 	}
 }
 
-void render(const char* out_path, const std::function<void()>& draw_code) {
+void render(const std::function<void()>& draw_code) {
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_Window* window = SDL_CreateWindow(
 		"obj software renderer",
