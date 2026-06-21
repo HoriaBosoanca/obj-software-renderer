@@ -47,6 +47,6 @@ void transform_triangle(Triangle& t) {
 void Model::draw(const Color c) const {
 	for (auto t : triangles) {
 		transform_triangle(t);
-		draw_triangle(t, c);
+		draw_triangle_fill(t, c);
 	}
 }
