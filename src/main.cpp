@@ -5,11 +5,9 @@
 
 int main(const int argc, char* argv[]) {
 	if (argc < 2) { std::cout << "Please specify a .obj input file!\n"; return 0; }
-	WIDTH = 128;
-	HEIGHT = 128;
 	const Model model(argv[1]);
 	render([&model] {
-		// model.draw(RED);
+		model.draw(RED);
 		draw_triangle_fill(Triangle{
 			Vec3{7, 45, 0},
 			Vec3{35, 100, 0},

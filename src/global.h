@@ -2,8 +2,8 @@
 #include <cstdint>
 #include <utility>
 
-inline int WIDTH = 800,
-		   HEIGHT = 800;
+constexpr int WIDTH = 800,
+			  HEIGHT = 800;
 constexpr float CAM_SCALE = 1.0f;
 
 struct Vec3 {
