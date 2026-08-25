@@ -3,7 +3,7 @@
 #include <sstream>
 #include "draw.h"
 
-Model::Model(const char* obj_path) {
+Model::Model(std::string obj_path) {
 	std::ifstream in_file(obj_path);
 	std::vector<Vec3> points;
 

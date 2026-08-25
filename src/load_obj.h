@@ -1,10 +1,11 @@
 #pragma once
 
 #include "global.h"
+#include <string>
 #include <vector>
 
 struct Model {
 	std::vector<Triangle> triangles;
-	Model(const char* obj_path);
+	Model(std::string obj_path);
 	void draw(Color c) const;
 };
