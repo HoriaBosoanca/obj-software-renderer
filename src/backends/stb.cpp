@@ -1,9 +1,9 @@
-#include "impl.h"
+#include "../backend.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
 #define CHANNELS 3
-uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
+static uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
 
 void set_pixel(const int x, const int y, const Color color) {
 	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
@@ -14,7 +14,6 @@ void set_pixel(const int x, const int y, const Color color) {
 	}
 }
 
-void render(const std::function<void()>& draw_code) {
-	draw_code();
+void render() {
 	stbi_write_png("render.png", WIDTH, HEIGHT, CHANNELS, pixels, WIDTH*CHANNELS);
 }

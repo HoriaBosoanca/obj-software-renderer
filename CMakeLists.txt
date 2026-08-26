@@ -5,16 +5,16 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 option(USE_SDL "OFF -> will generate an image using stb; ON -> will render using SDL" OFF)
 if (USE_SDL)
-    set(BACKEND src/SDL_impl.cpp)
+    set(BACKEND src/backends/SDL.cpp)
     set(BIN_DIR ${CMAKE_SOURCE_DIR}/build/SDL)
 else ()
-    set(BACKEND src/stb_impl.cpp)
+    set(BACKEND src/backends/stb.cpp)
     set(BIN_DIR ${CMAKE_SOURCE_DIR}/build/stb)
 endif ()
 add_executable(obj_software_renderer
     ${BACKEND}
     src/main.cpp
-    src/load_obj.cpp
+        src/model.cpp
     src/draw.cpp
 )
 target_include_directories(obj_software_renderer PRIVATE

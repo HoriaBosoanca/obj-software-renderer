@@ -1,9 +1,9 @@
-#include "load_obj.h"
+#include "model.h"
 #include <fstream>
 #include <sstream>
 #include "draw.h"
 
-Model::Model(std::string obj_path) {
+Model::Model(const std::string& obj_path) {
 	std::ifstream in_file(obj_path);
 	std::vector<Vec3> points;
 
@@ -13,7 +13,7 @@ Model::Model(std::string obj_path) {
 		std::string label; line_ss >> label;
 		if (label == "v") {
 			float x, y, z; line_ss >> x >> y >> z;
-			points.push_back(Vec3{x, y, z});
+			points.emplace_back(x, y, z);
 		} else if (label == "f") {
 			std::string num_str;
 
@@ -37,7 +37,7 @@ Model::Model(std::string obj_path) {
 	in_file.close();
 }
 
-void transform_triangle(Triangle& t) {
+static void transform_triangle(Triangle& t) {
 	for (Vec3* p : {&std::get<0>(t), &std::get<1>(t), &std::get<2>(t)}) {
 		*p = (*p+1.0f)/2.0f/CAM_SCALE;
 		p->x *= WIDTH; p->y *= HEIGHT;

@@ -1,9 +1,9 @@
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
-#include "impl.h"
+#include "../backend.h"
 
 SDL_Surface* surface;
-uint32_t* pixels;
+static uint32_t* pixels;
 
 void set_pixel(const int x, const int y, const Color color) {
 	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
@@ -11,7 +11,7 @@ void set_pixel(const int x, const int y, const Color color) {
 	}
 }
 
-void render(const std::function<void()>& draw_code) {
+void render() {
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_Window* window = SDL_CreateWindow(
 		"obj software renderer",
@@ -33,7 +33,6 @@ void render(const std::function<void()>& draw_code) {
 		for (int y = 0; y < HEIGHT; y++)
 			for (int x = 0; x < WIDTH; x++)
 				set_pixel(x, y, BLACK);
-		draw_code();
 
 		SDL_UnlockSurface(surface);
 		SDL_UpdateWindowSurface(window);

@@ -6,6 +6,6 @@
 
 struct Model {
 	std::vector<Triangle> triangles;
-	Model(std::string obj_path);
+	explicit Model(const std::string& obj_path);
 	void draw(Color c) const;
 };

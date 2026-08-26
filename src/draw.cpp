@@ -1,9 +1,9 @@
 #include "draw.h"
-#include "impl.h"
+#include "backend.h"
 #include <cmath>
 #include <tuple>
 
-void draw_line(Vec3 a, Vec3 b, const Color c) {
+static void draw_line(Vec3 a, Vec3 b, const Color c) {
 	// for (float t = 0; t < 1; t+=.02) {
 	// 	int x = std::round(a.x+(b.x-a.x)*t);
 	// 	int y = std::round(a.y+(b.y-a.y)*t);
@@ -45,10 +45,10 @@ void draw_triangle_fill(const Triangle& t, const Color col) {
 				mbc = (B.y-C.y)/(B.x-C.x);
 	for (float yi = A.y; yi >= B.y; yi -= 0.02f) {
 		// d: y-yi=0, so y=yi this is the scan-line at height yi
-		// AB: y-ya=mab(x-xa)
+		// AB: y-ya=mab*(x-xa)
 		// the intersection of d and AB is the start point of the scan-line
 		float x1 = (yi-A.y)/mab+A.x;
-		// AC: y-ya=mac(x-xa)
+		// AC: y-ya=mac*(x-xa)
 		// the intersection of d and AC is the end point of the scan-line
 		float x2 = (yi-A.y)/mac+A.x;
 		if (x1 > x2) std::swap(x1, x2);
