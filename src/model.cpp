@@ -1,7 +1,7 @@
 #include "model.h"
+#include "draw.h"
 #include <fstream>
 #include <sstream>
-#include "draw.h"
 
 Model::Model(const std::string& obj_path) {
 	std::ifstream in_file(obj_path);
@@ -29,7 +29,7 @@ Model::Model(const std::string& obj_path) {
 			int idx3 = std::stoi(num_str);
 			std::getline(line_ss, num_str, '\n');
 
-			triangles.push_back(Triangle{points[idx1-1], points[idx2-1], points[idx3-1]});
+			triangles.emplace_back(points[idx1-1], points[idx2-1], points[idx3-1]);
 		} else {
 			// nothing for now
 		}
@@ -37,15 +37,13 @@ Model::Model(const std::string& obj_path) {
 	in_file.close();
 }
 
-static void transform_triangle(Triangle& t) {
-	for (Vec3* p : {&std::get<0>(t), &std::get<1>(t), &std::get<2>(t)}) {
-		*p = (*p+1.0f)/2.0f/CAM_SCALE;
-		p->x *= WIDTH; p->y *= HEIGHT;
-	}
+static void transform_triangle(Triangle2D& t) {
+	t = (t+1.0f)/2.0f*Vec2{WIDTH, HEIGHT}/CAM_SCALE;
 }
 
 void Model::draw(const Color c) const {
-	for (auto t : triangles) {
+	for (auto _t : triangles) {
+		auto t = _t.to2D();
 		transform_triangle(t);
 		draw_triangle_fill(t, c);
 	}

@@ -5,7 +5,7 @@
 #include <vector>
 
 struct Model {
-	std::vector<Triangle> triangles;
+	std::vector<Triangle3D> triangles;
 	explicit Model(const std::string& obj_path);
 	void draw(Color c) const;
 };

@@ -2,41 +2,43 @@
 #include "backend.h"
 #include <algorithm>
 #include <cmath>
-#include <tuple>
 
-static void draw_line(Vec3 a, Vec3 b, const Color& c) {
-	// for (float t = 0; t < 1; t+=.02) {
-	// 	int x = std::round(a.x+(b.x-a.x)*t);
-	// 	int y = std::round(a.y+(b.y-a.y)*t);
-	// 	set_pixel_impl(x, y, color);
-	// }
-	const bool steep = std::abs(a.x-b.x) < std::abs(a.y-b.y);
+static void bad_draw_line(const Vec2 A, const Vec2 B, const Color& col) {
+	for (float t = 0; t < 1; t+=.02) {
+		const int x = std::round(A.x+(B.x-A.x)*t);
+		const int y = std::round(A.y+(B.y-A.y)*t);
+		set_pixel(x, y, col);
+	}
+}
+
+static void better_draw_line(Vec2 A, Vec2 B, const Color& col) {
+	const bool steep = std::abs(A.x-B.x) < std::abs(A.y-B.y);
 	if (steep) {
-		std::swap(a.x, a.y);
-		std::swap(b.x, b.y);
+		std::swap(A.x, A.y);
+		std::swap(B.x, B.y);
 	}
-	if (a.x > b.x) {
-		std::swap(a, b);
+	if (A.x > B.x) {
+		std::swap(A, B);
 	}
-	for (int x = a.x; x <= b.x; x++) {
-		const float t = (x-a.x)/(b.x-a.x);
-		const int y = std::round(a.y+(b.y-a.y)*t);
+	for (int x = A.x; x <= B.x; x++) {
+		const float t = (x-A.x)/(B.x-A.x);
+		const int y = std::round(A.y+(B.y-A.y)*t);
 		if (steep) {
-			set_pixel(y, x, c);
+			set_pixel(y, x, col);
 		} else {
-			set_pixel(x, y, c);
+			set_pixel(x, y, col);
 		}
 	}
 }
 
-void draw_triangle_empty(const Triangle& t, const Color& col) {
-	draw_line(std::get<0>(t), std::get<1>(t), col);
-	draw_line(std::get<1>(t), std::get<2>(t), col);
-	draw_line(std::get<2>(t), std::get<0>(t), col);
+void draw_triangle_empty(const Triangle2D& t, const Color& col) {
+	better_draw_line(t.A, t.B, col);
+	better_draw_line(t.B, t.C, col);
+	better_draw_line(t.C, t.A, col);
 }
 
-static void scanline_fill_triangle(const Triangle& t, const Color& col) {
-	Vec3 A = std::get<0>(t), B = std::get<1>(t), C = std::get<2>(t);
+static void scanline_fill_triangle(const Triangle2D& t, const Color& col) {
+	Vec2 A = t.A, B = t.B, C = t.C;
 	if (A.y < B.y) std::swap(A, B);
 	if (A.y < C.y) std::swap(A, C);
 	if (B.y < C.y) std::swap(B, C);
@@ -67,8 +69,8 @@ static void scanline_fill_triangle(const Triangle& t, const Color& col) {
 	}
 }
 
-static void bbox_fill_triangle(const Triangle& t, const Color& col) {
-	Vec3 A = std::get<0>(t), B = std::get<1>(t), C = std::get<2>(t);
+static void bbox_fill_triangle(const Triangle2D& t, const Color& col) {
+	const Vec2 A = t.A, B = t.B, C = t.C;
 	const Vec3 bbmin = {
 		std::min(std::min(A.x, B.x), C.x),
 		std::min(std::min(A.y, B.y), C.y),
@@ -86,6 +88,6 @@ static void bbox_fill_triangle(const Triangle& t, const Color& col) {
 	}
 }
 
-void draw_triangle_fill(const Triangle& t, const Color& col) {
+void draw_triangle_fill(const Triangle2D& t, const Color& col) {
 	bbox_fill_triangle(t, col);
 }
