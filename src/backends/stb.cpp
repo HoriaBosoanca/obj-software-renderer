@@ -5,7 +5,7 @@
 #define CHANNELS 3
 static uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
 
-void set_pixel(const int x, const int y, const Color color) {
+void set_pixel(const int x, const int y, const Color& color) {
 	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
 		const int idx = ((HEIGHT-1-y)*WIDTH+x)*CHANNELS;
 		pixels[idx + 0] = color.r;

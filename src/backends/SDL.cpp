@@ -5,7 +5,7 @@
 SDL_Surface* surface;
 static uint32_t* pixels;
 
-void set_pixel(const int x, const int y, const Color color) {
+void set_pixel(const int x, const int y, const Color& color) {
 	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
 		pixels[(HEIGHT-1-y) * WIDTH + x] = SDL_MapRGB(surface->format, color.r, color.g, color.b);
 	}

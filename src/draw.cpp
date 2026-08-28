@@ -1,9 +1,10 @@
 #include "draw.h"
 #include "backend.h"
+#include <algorithm>
 #include <cmath>
 #include <tuple>
 
-static void draw_line(Vec3 a, Vec3 b, const Color c) {
+static void draw_line(Vec3 a, Vec3 b, const Color& c) {
 	// for (float t = 0; t < 1; t+=.02) {
 	// 	int x = std::round(a.x+(b.x-a.x)*t);
 	// 	int y = std::round(a.y+(b.y-a.y)*t);
@@ -28,13 +29,13 @@ static void draw_line(Vec3 a, Vec3 b, const Color c) {
 	}
 }
 
-void draw_triangle_wireframe(const Triangle& t, const Color c) {
-	draw_line(std::get<0>(t), std::get<1>(t), c);
-	draw_line(std::get<1>(t), std::get<2>(t), c);
-	draw_line(std::get<2>(t), std::get<0>(t), c);
+void draw_triangle_empty(const Triangle& t, const Color& col) {
+	draw_line(std::get<0>(t), std::get<1>(t), col);
+	draw_line(std::get<1>(t), std::get<2>(t), col);
+	draw_line(std::get<2>(t), std::get<0>(t), col);
 }
 
-void draw_triangle_fill(const Triangle& t, const Color col) {
+static void scanline_fill_triangle(const Triangle& t, const Color& col) {
 	Vec3 A = std::get<0>(t), B = std::get<1>(t), C = std::get<2>(t);
 	if (A.y < B.y) std::swap(A, B);
 	if (A.y < C.y) std::swap(A, C);
@@ -64,4 +65,27 @@ void draw_triangle_fill(const Triangle& t, const Color col) {
 			set_pixel(xi, yi, col);
 		}
 	}
+}
+
+static void bbox_fill_triangle(const Triangle& t, const Color& col) {
+	Vec3 A = std::get<0>(t), B = std::get<1>(t), C = std::get<2>(t);
+	const Vec3 bbmin = {
+		std::min(std::min(A.x, B.x), C.x),
+		std::min(std::min(A.y, B.y), C.y),
+		0
+	}, bbmax = {
+		std::max(std::max(A.x, B.x), C.x),
+		std::max(std::max(A.y, B.y), C.y),
+		0
+	};
+#pragma omp parallel for
+	for (int x = bbmin.x; x <= bbmax.x; x++) {
+		for (int y = bbmin.y; y <= bbmax.y; y++) {
+			set_pixel(x, y, col);
+		}
+	}
+}
+
+void draw_triangle_fill(const Triangle& t, const Color& col) {
+	bbox_fill_triangle(t, col);
 }
