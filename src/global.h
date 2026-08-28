@@ -1,9 +1,9 @@
 #pragma once
 #include <cstdint>
 
-constexpr int WIDTH = 800,
-              HEIGHT = 800;
-constexpr float CAM_SCALE = 1.0f;
+constexpr int WIDTH_PX = 800,
+              HEIGHT_PX = 800;
+constexpr float CAM_SCALE = 0.05f; // default = 1
 
 struct Vec2 {
 	float x, y;
@@ -11,6 +11,9 @@ struct Vec2 {
 		: x(_x), y(_y) {}
 	Vec2 operator+(const float n) const {
 		return Vec2{x+n, y+n};
+	}
+	Vec2 operator*(const float n) const {
+		return Vec2{x*n, y*n};
 	}
 	Vec2 operator/(const float n) const {
 		return Vec2{x/n, y/n};
@@ -33,6 +36,9 @@ struct Triangle2D {
 		: A{_a}, B{_b}, C{_c} {}
 	Triangle2D operator+(const float n) const {
 		return Triangle2D{A+n, B+n, C+n};
+	}
+	Triangle2D operator*(const float n) const {
+		return Triangle2D{A*n, B*n, C*n};
 	}
 	Triangle2D operator/(const float n) const {
 		return Triangle2D{A/n, B/n, C/n};

@@ -38,7 +38,7 @@ Model::Model(const std::string& obj_path) {
 }
 
 static void transform_triangle(Triangle2D& t) {
-	t = (t+1.0f)/2.0f*Vec2{WIDTH, HEIGHT}/CAM_SCALE;
+	t = (t*CAM_SCALE+1.0f)/2.0f*Vec2{WIDTH_PX, HEIGHT_PX};
 }
 
 void Model::draw(const Color c) const {
