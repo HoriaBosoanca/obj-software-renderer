@@ -14,7 +14,7 @@ endif ()
 add_executable(obj_software_renderer
     ${BACKEND}
     src/main.cpp
-        src/model.cpp
+    src/model.cpp
     src/draw.cpp
 )
 target_include_directories(obj_software_renderer PRIVATE
