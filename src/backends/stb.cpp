@@ -5,12 +5,14 @@
 #define CHANNELS 3
 static uint8_t pixels[WIDTH*HEIGHT*CHANNELS] = {};
 
-void set_pixel(const int x, const int y, const Color& color) {
+void init() {}
+
+void set_pixel(const int x, const int y, const Color& col) {
 	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT) {
 		const int idx = ((HEIGHT-1-y)*WIDTH+x)*CHANNELS;
-		pixels[idx + 0] = color.r;
-		pixels[idx + 1] = color.g;
-		pixels[idx + 2] = color.b;
+		pixels[idx + 0] = col.r;
+		pixels[idx + 1] = col.g;
+		pixels[idx + 2] = col.b;
 	}
 }
 
