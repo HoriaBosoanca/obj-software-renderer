@@ -6,7 +6,7 @@
 int main(const int argc, char* argv[]) {
 	init();
 	if (argc < 2) { std::cout << "Please specify a .obj input file!\n"; return 0; }
-	const Model model(std::string("../assets/")+argv[1]);
+	const Model model(argv[1]);
 	model.draw();
 	draw_triangle_fill(Triangle2D{
 			Vec2{7, 45},

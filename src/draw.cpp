@@ -77,7 +77,7 @@ static void bbox_fill_triangle(const Triangle2D& t, const Color& col) {
 	const Vec2 A = t.A, B = t.B, C = t.C;
 	const Vec2 bbmin = {
 		std::min(std::min(A.x, B.x), C.x),
-		std::min(std::min(A.y, B.y), C.y),
+		std::min(std::min(A.y, B.y), C.y)
 	}, bbmax = {
 		std::max(std::max(A.x, B.x), C.x),
 		std::max(std::max(A.y, B.y), C.y)
