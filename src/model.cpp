@@ -41,10 +41,10 @@ static void transform_triangle(Triangle2D& t) {
 	t = (t*CAM_SCALE+1.0f)/2.0f*Vec2{WIDTH_PX, HEIGHT_PX};
 }
 
-void Model::draw(const Color c) const {
+void Model::draw() const {
 	for (auto _t : triangles) {
 		auto t = _t.to2D();
 		transform_triangle(t);
-		draw_triangle_fill(t, c);
+		draw_triangle_fill(t, {rand_byte(), rand_byte(), rand_byte(), 255});
 	}
 }

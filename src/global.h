@@ -1,9 +1,10 @@
 #pragma once
 #include <cstdint>
+#include <cstdlib>
 
 constexpr int WIDTH_PX = 800,
               HEIGHT_PX = 800;
-constexpr float CAM_SCALE = 0.05f; // default = 1
+constexpr float CAM_SCALE = 1.0f; // default = 1
 
 struct Vec2 {
 	float x, y;
@@ -55,6 +56,10 @@ struct Triangle3D {
 		return Triangle2D{A.to2D(), B.to2D(), C.to2D()};
 	}
 };
+
+inline uint8_t rand_byte() {
+	return std::rand() % 256;
+}
 
 struct Color {
 	Color(const uint8_t _b, const uint8_t _g, const uint8_t _r, const uint8_t _a)

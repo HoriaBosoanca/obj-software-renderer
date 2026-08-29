@@ -69,20 +69,28 @@ static void scanline_fill_triangle(const Triangle2D& t, const Color& col) {
 	}
 }
 
+static double signed_triangle_area(const Vec2 a, const Vec2 b, const Vec2 c) {
+	return .5*((b.y-a.y)*(b.x+a.x) + (c.y-b.y)*(c.x+b.x) + (a.y-c.y)*(a.x+c.x));
+}
+
 static void bbox_fill_triangle(const Triangle2D& t, const Color& col) {
 	const Vec2 A = t.A, B = t.B, C = t.C;
-	const Vec3 bbmin = {
+	const Vec2 bbmin = {
 		std::min(std::min(A.x, B.x), C.x),
 		std::min(std::min(A.y, B.y), C.y),
-		0
 	}, bbmax = {
 		std::max(std::max(A.x, B.x), C.x),
-		std::max(std::max(A.y, B.y), C.y),
-		0
+		std::max(std::max(A.y, B.y), C.y)
 	};
 #pragma omp parallel for
 	for (int x = bbmin.x; x <= bbmax.x; x++) {
 		for (int y = bbmin.y; y <= bbmax.y; y++) {
+			if (const Vec2 P = {static_cast<float>(x), static_cast<float>(y)};
+				signed_triangle_area(P, B, C) < 0 ||
+				signed_triangle_area(P, C, A) < 0 ||
+				signed_triangle_area(P, A, B) < 0) {
+				continue;
+			}
 			set_pixel(x, y, col);
 		}
 	}
