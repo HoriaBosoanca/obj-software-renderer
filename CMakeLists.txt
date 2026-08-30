@@ -2,9 +2,12 @@ cmake_minimum_required(VERSION 4.1)
 project(obj_software_renderer)
 set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
-
 option(USE_SDL "OFF -> will generate an image using stb; ON -> will render using SDL" OFF)
 if (USE_SDL)
+    if (NOT WIN32)
+        # remove -static flag for linux since SDL won't compile
+        set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+    endif ()
     set(BACKEND src/backends/SDL.cpp)
     set(BIN_DIR ${CMAKE_SOURCE_DIR}/build/SDL)
 else ()
@@ -20,24 +23,36 @@ add_executable(obj_software_renderer
 target_include_directories(obj_software_renderer PRIVATE
     src
 )
-set_target_properties(obj_software_renderer PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR}
+set_target_properties(obj_software_renderer PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
+include(FetchContent)
+FetchContent_Declare(
+    SDL3
+    GIT_REPOSITORY https://github.com/libsdl-org/SDL
+    GIT_TAG release-3.4.14
+    GIT_SHALLOW TRUE
+)
+FetchContent_Declare(
+    stb
+    GIT_REPOSITORY https://github.com/nothings/stb.git
+    GIT_TAG master
+    GIT_SHALLOW TRUE
 )
 if (USE_SDL)
-    set(SDL2_LIB ${CMAKE_SOURCE_DIR}/lib/SDL2-2.32.10/x86_64-w64-mingw32)
-    target_include_directories(obj_software_renderer PRIVATE
-        ${SDL2_LIB}/include/SDL2
-    )
-    target_link_libraries(obj_software_renderer PRIVATE
-        ${SDL2_LIB}/lib/libSDL2main.a
-        ${SDL2_LIB}/lib/libSDL2.a
-        winmm
-        imm32
-        version
-        setupapi
-    )
+    set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+    set(SDL_STATIC ON CACHE BOOL "" FORCE)
+    FetchContent_MakeAvailable(SDL3)
+    target_link_libraries(obj_software_renderer PRIVATE SDL3::SDL3-static)
+    if (WIN32)
+        target_link_libraries(obj_software_renderer PRIVATE
+            winmm
+            imm32
+            version
+            setupapi
+        )
+    endif ()
 else ()
+    FetchContent_MakeAvailable(stb)
     target_include_directories(obj_software_renderer PRIVATE
-        lib/stb
+        ${stb_SOURCE_DIR}
     )
 endif ()
