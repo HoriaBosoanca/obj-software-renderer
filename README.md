@@ -12,8 +12,8 @@ This project is being made while following the tutorial at https://haqr.eu/tinyr
 - .obj files for testing can be found in `build/assets`
 - camera zoom can be adjusted by modifying `CAM_SCALE` in global.h
 - when compiling with CMAKE, the `USE_SDL` variable in `set(USE_SDL ON)` can be set to `ON` or `OFF` to decide whether to use stb or SDL
-- example usage (from within the `build/stb` directory):\
-`./obj_software_renderer ../assets/african_head.obj`
+- example usage on Windows (from within the `build/stb` directory):\
+`./obj_software_renderer.exe ../assets/african_head.obj`
 
 ### dependency links
 - stb: https://github.com/nothings/stb
