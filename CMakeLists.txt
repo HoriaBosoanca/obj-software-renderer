@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 4.1)
 project(obj_software_renderer)
 set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
-option(USE_SDL "OFF -> will generate an image using stb; ON -> will render using SDL" OFF)
+option(USE_SDL "whether to generate an image using stb or render using SDL" ON)
 if (USE_SDL)
     if (NOT WIN32)
         # remove -static flag for linux since SDL won't compile
@@ -19,9 +19,6 @@ add_executable(obj_software_renderer
     src/main.cpp
     src/model.cpp
     src/draw.cpp
-)
-target_include_directories(obj_software_renderer PRIVATE
-    src
 )
 set_target_properties(obj_software_renderer PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR})
 include(FetchContent)
