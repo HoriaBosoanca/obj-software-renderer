@@ -1,8 +1,9 @@
+option(USE_SDL "whether to generate an image using stb or render using SDL" ON)
+
 cmake_minimum_required(VERSION 4.1)
 project(obj_software_renderer)
 set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
-option(USE_SDL "whether to generate an image using stb or render using SDL" ON)
 if (USE_SDL)
     if (NOT WIN32)
         # remove -static flag for linux since SDL won't compile
