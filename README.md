@@ -20,6 +20,6 @@ This project mainly follows the tutorial at https://haqr.eu/tinyrenderer
 - SDL: https://github.com/libsdl-org/SDL
 
 ### TODO:
-- go back to https://haqr.eu/tinyrenderer/bresenham and implement the line optimizations
 - keep reading/implementing theory from the article;
 next up is https://haqr.eu/tinyrenderer/barycentric
+- (maybe) go back to https://haqr.eu/tinyrenderer/bresenham and implement the line optimizations

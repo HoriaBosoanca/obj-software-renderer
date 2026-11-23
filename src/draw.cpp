@@ -130,6 +130,7 @@ static void bbox_fill_triangle(const Triangle2D& t, const Color& col) {
 		std::max(std::max(A.y, B.y), C.y)
 	};
 	const double total_area = signed_triangle_area(A, B, C);
+	// back-face culling and eliminating small triangles
 	if (total_area < 1.0) return;
 #pragma omp parallel for
 	for (int x = bbmin.x; x <= bbmax.x; x++) {
