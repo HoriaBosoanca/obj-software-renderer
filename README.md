@@ -3,7 +3,7 @@
 A program that takes an .obj file as a command-line argument and renders it
 entirely on the CPU. The final result is displayed either using:
 - the stb library, as a .png
-- the SDL library, in an open window (only on Windows for now)
+- the SDL library, in an open window
 
 This project mainly follows the tutorial at https://haqr.eu/tinyrenderer
 
